@@ -14,18 +14,40 @@
         
         .content {
             width: 800px;
-            margin: 0 auto;
+            margin: 20px auto 0;
         }
         
         .studentlist {
             width: 800px;
         }
+        
+        thead td {
+            text-align: center;
+        }
     </style>
+    <script>
+        function getdata(src) {
+            var script = document.createElement('script');
+            script.src = src;
+            document.head.appendChild(script);
+        }
+
+        window.onload = function() {
+            getdata('http://api.haomo-studio.com/org/departments');
+            // var xhr = new XMLHttpRequest();
+            // xhr.open("GET", "http://api.haomo-studio.com/org/departments");
+            // xhr.send(null);
+        }
+
+        function foo(data) {
+            console.log('response data: ' + JSON.stringify(data));
+        };
+    </script>
 </head>
 
 <body>
     <div class="content">
-        <table class="studentlist">
+        <table class="studentlist" border="1">
             <thead>
                 <tr>
                     <td>ID</td>
